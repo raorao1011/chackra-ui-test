@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
   Center,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   Spinner,
   useDisclosure,
   Wrap,
@@ -12,6 +9,7 @@ import {
 import { memo, useCallback, useEffect, VFC } from "react";
 
 import { UserCard } from "../organism/user/UserCard";
+import { UserDetailModal } from "../organism/user/UserDetailModal";
 import { useAllUsers } from "../../hooks/useAllUsers";
 
 export const UserManegement: VFC = memo(() => {
@@ -42,12 +40,7 @@ export const UserManegement: VFC = memo(() => {
           ))}
         </Wrap>
       )}
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <p>テスト</p>
-        </ModalContent>
-      </Modal>
+      <UserDetailModal isOpen={isOpen} onClose={onClose} />
     </>
   );
 });
